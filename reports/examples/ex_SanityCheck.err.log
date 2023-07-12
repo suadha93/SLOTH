@@ -1,0 +1,58 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+%matplotlib inline
+import matplotlib as mpl
+import numpy as np
+import netCDF4 as nc
+import os
+
+import sloth.SanityCheck
+cwd = os.getcwd()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[2], line 7[0m
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mnetCDF4[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnc[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mos[39;00m
+[0;32m----> 7[0m [38;5;28;01mimport[39;00m [38;5;21;01msloth[39;00m[38;5;21;01m.[39;00m[38;5;21;01mSanityCheck[39;00m
+[1;32m      8[0m cwd [38;5;241m=[39m os[38;5;241m.[39mgetcwd()
+
+File [0;32m~/work/SLOTH/SLOTH/examples/../sloth/SanityCheck.py:40[0m
+[1;32m     38[0m [38;5;28;01mimport[39;00m [38;5;21;01mcopy[39;00m
+[1;32m     39[0m [38;5;28;01mimport[39;00m [38;5;21;01mcftime[39;00m
+[0;32m---> 40[0m [38;5;28;01mimport[39;00m [38;5;21;01msloth[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcolormaps[39;00m
+[1;32m     42[0m [38;5;28;01mdef[39;00m [38;5;21mget_PlotMinMaxMid_Percentil[39m(data, lower[38;5;241m=[39m[38;5;241m5[39m, upper[38;5;241m=[39m[38;5;241m95[39m):
+[1;32m     43[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m     44[0m [38;5;124;03m    Calculate the minimum, maximum, and midpoint values based on percentiles of the input data.[39;00m
+[1;32m     45[0m 
+[0;32m   (...)[0m
+[1;32m     72[0m 
+[1;32m     73[0m [38;5;124;03m    """[39;00m
+
+File [0;32m~/work/SLOTH/SLOTH/examples/../sloth/colormaps.py:7[0m
+[1;32m      5[0m colormaps_path[38;5;241m=[39m[38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mos[38;5;241m.[39mpath[38;5;241m.[39mdirname([38;5;18m__file__[39m)[38;5;132;01m}[39;00m[38;5;124m/../extern/colormaps[39m[38;5;124m'[39m
+[1;32m      6[0m sys[38;5;241m.[39mpath[38;5;241m.[39mappend(colormaps_path)
+[0;32m----> 7[0m [38;5;28;01mimport[39;00m [38;5;21;01mcolormaps[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'colormaps'
+
